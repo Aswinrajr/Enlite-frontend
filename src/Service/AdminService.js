@@ -57,9 +57,7 @@ export const UserAction = async (id) => {
 export const editUserData = async (id) => {
   try {
     
-    const response = await adminInstance.post(`/useraction`, {id:id
- 
-    });
+    const response = await adminInstance.get(`/userdata/${id}`);
     console.log("...........................................")
     console.log("response", response);
     console.log(" response.data", response.data);   

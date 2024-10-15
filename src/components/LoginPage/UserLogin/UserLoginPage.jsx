@@ -77,7 +77,7 @@ const UserLoginPage = () => {
         </div>
         <div className="flex-grow flex flex-col justify-center">
           <h2 className="text-4xl font-bold leading-tight mb-4">
-            Welcome back!
+            Welcome back User!
           </h2>
           <p className="text-xl">Please sign in to continue</p>
         </div>
@@ -121,6 +121,15 @@ const UserLoginPage = () => {
               )} hover:underline`}
             >
               Create new account
+            </button>
+            <button
+              onClick={() => navigate("/admin")}
+              className={`text-sm ${themes[theme].replace(
+                "bg-",
+                "text-"
+              )} hover:underline`}
+            >
+              Admin Login
             </button>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">

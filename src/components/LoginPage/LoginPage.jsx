@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Eye, ArrowLeft, ChevronDown, Settings } from "lucide-react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { Navigate, useNavigate } from "react-router-dom"; 
 import { adminLogin } from "../../Service/AdminService";
 import { Toaster, toast } from "react-hot-toast";
 
@@ -11,6 +11,8 @@ const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [language, setLanguage] = useState("English");
   const [theme, setTheme] = useState("sky");
+
+  const token = localStorage.getItem("accessToken")
 
   const themes = {
     sky: "bg-sky-600",
@@ -63,6 +65,11 @@ const LoginPage = () => {
     }
   };
 
+  if(!token){
+    <Navigate to="/admin" />
+    // navigate("/admin/dashboard")
+  }
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
           <Toaster position="top-center" reverseOrder={false}></Toaster>
@@ -76,7 +83,7 @@ const LoginPage = () => {
         </div>
         <div className="flex-grow flex flex-col justify-center">
           <h2 className="text-4xl font-bold leading-tight mb-4">
-            Welcome back!
+            Welcome back Admin!
           </h2>
           <p className="text-xl">Please sign in to continue</p>
         </div>
@@ -112,7 +119,7 @@ const LoginPage = () => {
         <div className="w-full max-w-md">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold text-gray-800">Sign in</h2>
-            <button
+            {/* <button
               onClick={() => navigate("/")}
               className={`text-sm ${themes[theme].replace(
                 "bg-",
@@ -120,7 +127,7 @@ const LoginPage = () => {
               )} hover:underline`}
             >
               Create new account
-            </button>
+            </button> */}
           </div>
  
           <form onSubmit={handleSubmit} className="space-y-4">
