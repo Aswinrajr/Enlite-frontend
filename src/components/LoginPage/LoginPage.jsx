@@ -122,6 +122,18 @@ const LoginPage = () => {
               Create new account
             </button>
           </div>
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-800">Sign in as Admin</h2>
+            <button
+              onClick={() => navigate("/admin")}
+              className={`text-sm ${themes[theme].replace(
+                "bg-",
+                "text-"
+              )} hover:underline`}
+            >
+              Admin
+            </button>
+          </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label
